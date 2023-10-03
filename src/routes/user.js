@@ -9,7 +9,6 @@ require('dotenv').config();
 // create user
 router.post("/users", (req, res) => {
   const user = userSchema(req.body);
-  console.log(user,req.body);
   user
     .save()
     .then((data) => res.json(data))
@@ -76,7 +75,7 @@ router.post('/signup', async (req, res) => {
     .catch((error) => res.json({ message: error }));
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Internal server Error' });
+    res.status(500).json({ message: 'Internal Server Error' });
   }
 });
 
