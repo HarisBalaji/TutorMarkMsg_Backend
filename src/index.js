@@ -9,7 +9,7 @@ const port = process.env.PORT || 5000;
 
 // middlewares
 app.use(express.json());
-app.use("https://tutor-mark-msg-api.onrender.com/api", userRoute);
+app.use("/api", userRoute);
 
 // routes
 app.get("/", (req, res) => {
