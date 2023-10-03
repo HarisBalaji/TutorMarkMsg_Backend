@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 console.log(process.env.MONGODB_URI);
 console.log(process.env.MONGODB_URI);
 mongoose
-  .connect(process.env.MONGODB_URI, { useNewUrlParser: true })
+  .connect(process.env.MONGODB_URI, { useNewUrlParser: true, socketTimeoutMS: 30000, connectTimeoutMS: 30000 })
   .then(() => console.log("Connected to MongoDB Atlas"))
   .catch((error) => console.error(error));
 
