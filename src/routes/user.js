@@ -55,6 +55,7 @@ router.put("/users/:id", (req, res) => {
 router.post('/signup', async (req, res) => {
   try {
     const { name, email, password } = req.body;
+    console.log(name, email, password)
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = userSchema({ name, email, password: hashedPassword });
     const emailExists = await userSchema.findOne({ email });
@@ -75,7 +76,7 @@ router.post('/signup', async (req, res) => {
     .catch((error) => res.json({ message: error }));
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Internal server error' });
+    res.status(500).json({ message: 'Internal server Error' });
   }
 });
 

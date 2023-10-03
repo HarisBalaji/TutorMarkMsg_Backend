@@ -9,15 +9,16 @@ const port = process.env.PORT || 5000;
 
 // middlewares
 app.use(express.json());
-app.use("/api", userRoute);
+app.use("https://tutor-mark-msg-api.onrender.com/api", userRoute);
 
 // routes
 app.get("/", (req, res) => {
   res.send("Welcome to API");
 });
 // mongodb connection
+console.log(process.env.MONGODB_URI);
 mongoose
-  .connect('mongodb://0.0.0.0:27017/login', { useNewUrlParser: true })
+  .connect(process.env.MONGODB_URI, { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB Atlas"))
   .catch((error) => console.error(error));
 
