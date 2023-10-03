@@ -13,7 +13,7 @@ app.use("/api", userRoute);
 
 // routes
 app.get("/", (req, res) => {
-  res.send("Welcome to API");
+  res.send("Welcome to my API");
 });
 // mongodb connection
 console.log(process.env.MONGODB_URI);
