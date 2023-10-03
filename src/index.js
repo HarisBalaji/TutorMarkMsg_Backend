@@ -16,10 +16,8 @@ app.get("/", (req, res) => {
   res.send("Welcome to my API");
 });
 // mongodb connection
-console.log(process.env.MONGODB_URI);
-console.log(process.env.MONGODB_URI);
 mongoose
-  .connect(process.env.MONGODB_URI, { useNewUrlParser: true, socketTimeoutMS: 30000, connectTimeoutMS: 30000 })
+  .connect(process.env.MONGODB_URI, { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB Atlas"))
   .catch((error) => console.error(error));
 
