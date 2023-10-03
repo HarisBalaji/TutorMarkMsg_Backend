@@ -54,7 +54,6 @@ router.put("/users/:id", (req, res) => {
 router.post('/signup', async (req, res) => {
   try {
     const { name, email, password } = req.body;
-    console.log(name, email, password)
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = userSchema({ name, email, password: hashedPassword });
     const emailExists = await userSchema.findOne({ email });
